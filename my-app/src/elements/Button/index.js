@@ -4,7 +4,7 @@ import propTypes from "prop-types";
 
 export default function Button(props) {
   const className = [props.className];
-  if (props.isPrimary) className.push("btn-primary");
+   if (props.isPrimary) className.push("btn-primary");
   if (props.isLarge) className.push("btn-lg");
   if (props.isSmall) className.push("btn-sm");
   if (props.isBlock) className.push("btn-block");
@@ -17,11 +17,11 @@ export default function Button(props) {
   if (props.isDisabled || props.isLoading) {
     if (props.isDisabled) className.push("disabled");
     return (
-      <span className={className.join("")} style={props.style}>
+      <span className={className.join(" ")} style={props.style}>
         {props.isLoading ? (
           <>
-            <span className="spinner-border spinner-border-sm mx-5  "></span>
-            <span className="sr-only">Loading..</span>
+            <span className="spinner-border spinner-border-sm mx-5"></span>
+            <span className="sr-only">Loading...</span>
           </>
         ) : (
           props.children
@@ -59,7 +59,7 @@ export default function Button(props) {
 
   return (
     <button
-      className={className.join("")}
+      className={className.join(" ")}//join() untuk menggabung kan style yang di buat di props conton isPrimary dan hasShadow ke dalam properti class di htmlnya
       style={props.style}
       onClick={onClick}
     >
@@ -77,6 +77,7 @@ Button.propTypes = {
   isDisabled: propTypes.bool,
   isLoading: propTypes.bool,
   isExternal: propTypes.bool,
+  isPrimary: propTypes.bool,
   isSmall: propTypes.bool,
   isLarge: propTypes.bool,
   isBlock: propTypes.bool,
