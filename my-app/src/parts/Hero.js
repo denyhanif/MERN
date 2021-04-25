@@ -9,13 +9,12 @@ import numberformat from 'utils/formatNumber'
 
 export default function Hero(props ) {
 
-    function showMostPicked(props) {
-        window.scrollTo({
-            top: props.refMostPicked.current.offsetTop - 30,
-            behavior: "smooth"
-        });
-        // window== animasi utk mengarhkan ke section most picked
-    }
+    const showMostPicked = () => {
+    window.scrollTo({
+      top: props.refMostPicked.current.offsetTop - 30,
+      behavior: "smooth",
+    });
+  };
 
    
     return (
