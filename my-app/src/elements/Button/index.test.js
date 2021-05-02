@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react"; //libraly untuk megambil komponen
-import { BrowserRouter as Router } from "react-router-dom"; //unutk membungkus tag Link
+import { BrowserRouter as Router } from "react-router-dom"; //u membungkus tag Link
 
 import Button from "./index"; //komponen yang test
 
