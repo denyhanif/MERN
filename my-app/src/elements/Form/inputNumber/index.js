@@ -5,7 +5,7 @@ import "./index.scss"
 export default function Number(props) {
 
     //destructor props yg akan dipakai
-    const { outerClassName, value, placeholder, name, min, max, prefix, suffix } = props;
+    const {value, placeholder, name, min, max, prefix, suffix, isSuffixPlural} = props;
 
     //statelokal
     const [InputValue, setInputValue] = useState(`${prefix}${value}${suffix}`)
@@ -29,6 +29,17 @@ export default function Number(props) {
         
     }
 
+  // const onChange = e => {
+  //   let value = String(e.target.value);
+  //   if (+value <= max && +value >= min) {
+  //     props.onChange({
+  //       target: {
+  //         name: name,
+  //         value: +value
+  //       }
+  //     });
+  //   }
+  // };
     const minus = () => {
         value > min &&
             onChange({

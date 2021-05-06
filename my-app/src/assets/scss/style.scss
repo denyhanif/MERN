@@ -94,7 +94,7 @@ header {
 }
 
 .card{
-    height:100%;
+    
 }
 
 section{
@@ -112,7 +112,10 @@ section{
     width: 100%;
 }
 .card{
-    height:100%;
+    &.bordered{
+        border: 1px solid $gray-200;
+    }
+    
     .tag{
         z-index: 3;
         font-size: 0.875rem;
@@ -138,8 +141,14 @@ section{
     }
     .meta-wrapper{
         margin-top: 1rem;
+        z-index: 1;
+        
 
         h5{
+            box-shadow: 40px;
+
+            text-decoration: none;
+            
             font-size: 1.25rem;
             margin-bottom: 2px;
         }
@@ -161,7 +170,7 @@ section{
             bottom: 0;
             transform: scale(1.1);
             transition: .5s transform ease-in-out;
-            z-index: 2;
+            z-index: 0;
             @include gradient-y(rgba($black,0),rgba($black,.51),0%,100%)
         }
 
@@ -178,7 +187,7 @@ section{
             border-radius: 15px;
         }
         .meta-wrapper{
-            z-index: 4;
+            z-index: 1;
             color: rgb(255, 255, 255);
             padding-left: 30px;
             padding-bottom: 30px;
@@ -270,4 +279,17 @@ footer {
         font-weight: 300;        
         color: $gray-500;
     }
+}
+
+main{
+    p{
+        font-family: "Poppins",sans-serif;
+        color: $gray-700;
+        font-weight: 300;
+    }
+}
+
+h6{
+  font-family: "Poppins",sans-serif;
+
 }

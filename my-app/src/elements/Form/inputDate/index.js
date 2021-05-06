@@ -14,7 +14,7 @@ export default function Date(props) {
   const { value, placeholder, name } = props;
   const [isShowed, setIsShowed] = useState(false);
 
-  const datePickerChange = (value) => {
+  const datePickerChange = value => {
     const target = {
       target: {
         value: value.selection,
@@ -25,28 +25,27 @@ export default function Date(props) {
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   });
 
   const refDate = useRef(null);
-  const handleClickOutside = (event) => {
+  const handleClickOutside = event => {
     if (refDate && !refDate.current.contains(event.target)) {
       setIsShowed(false);
     }
   };
 
-  const check = (focus) => {
+  const check = focus => {
     focus.indexOf(1) < 0 && setIsShowed(false);
   };
 
-  const displayDate = `${value.startDate ? formatDate(value.startDate) : ""}${
-    value.endDate ? " - " + formatDate(value.endDate) : ""
-  }`;
-
+  const displayDate = `${value.startDate ? formatDate(value.startDate) : ''}
+${value.endDate ? ' - ' + formatDate(value.endDate) : ''}`;
+ 
   return (
     <div
       ref={refDate}
