@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { Component } from 'react'
+import Fade from "react-reveal/Fade";
 
 import Header from 'parts/Header'
 import PageDetailTitle from 'parts/PageDetailTitle'
@@ -8,6 +9,8 @@ import FeaturedImage from 'parts/FeaturedImage'
 import PadeDetailDescription from 'parts/PageDetailDescription'
 import BookingForm from 'parts/BookingForm'
 import Footer from "parts/Footer";
+import Categories from 'parts/Categories'
+import Testimonial from 'parts/Testimony'
 
 
 export default class DetailPage extends Component{
@@ -33,15 +36,19 @@ export default class DetailPage extends Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-7 pr-5">
-                            <PadeDetailDescription data={ItemDetails}/>
+                            <Fade bottom>
+                                <PadeDetailDescription data={ItemDetails} />
+                            </Fade>
                         </div>
                         <div className="col-5">
-                            <BookingForm itemDetails={ItemDetails}/>
-
-                            
+                            <Fade bottom>
+                                <BookingForm itemDetails={ItemDetails} />
+                            </Fade>
                         </div>
                     </div>
                 </div>
+                <Categories data={ItemDetails.categories} />
+                <Testimonial data={ItemDetails.testimonial}/>
                 <Footer></Footer>
             </>
         )
