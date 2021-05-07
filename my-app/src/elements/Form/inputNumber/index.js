@@ -12,20 +12,22 @@ export default function Number(props) {
 
     const onChange = e => {
         let value = String(e.target.value);//konvert value keString
-        if (prefix) value = value.replace(prefix);//cek apakah prefix nul/empty/undefined -> value nya akan di replace
-        if (suffix) value = value.replace(suffix);
+        //if (prefix) value = value.replace(prefix);//cek apakah prefix nul/empty/undefined -> value nya akan di replace
+        //if (suffix) value = value.replace(suffix);
 
-        const patternNumeric = new RegExp("[0-9]*");//rule validasi dg regex
-        const isNumeric = patternNumeric.test.value;//validasi value dengan regex
+        //const patternNumeric = new RegExp("[0-9]*");//rule validasi dg regex
+        //const isNumeric = patternNumeric.test.value;//validasi value dengan regex
 
-        if (isNumeric  && +value <= max && +value >= min) {// +value = shorthad untuk Number(value) / ambil value bukanstring
-            props.onChange({
+        if ( +value <= max && +value >= min) {// +value = shorthad untuk Number(value) / ambil value bukanstring
+          props.onChange({
+            target: {
                 name: name,
                 value: +value
+              }
+                
             });
         }
-
-        setInputValue(`${prefix}${value}${suffix}`)
+        //setInputValue(`${prefix}${value}${suffix}`)
         
     }
 
@@ -74,7 +76,7 @@ export default function Number(props) {
           readOnly
           className="form-control"
           placeholder={placeholder ? placeholder : "0"}
-         value={String(InputValue)}
+          value={`${value}${suffix}`}
 
           onChange={onChange}
         />

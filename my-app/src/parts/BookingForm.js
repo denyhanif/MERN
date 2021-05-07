@@ -19,7 +19,7 @@ export default class BookingForm extends Component{
             }
         }
     }
-    //event on Click
+    //event on Click received data from inputDate&inputNumber 
     updateData = e => {
         this.setState({
             ...this.state,
@@ -32,10 +32,11 @@ export default class BookingForm extends Component{
 
     componentDidUpdate(prevProps, prevState) {
         const { data } = this.state
+        //durasi
         if (prevState.data.date !== data.date) {
             const startDate = new Date(data.date.startDate)
             const endDate = new Date(data.date.endDate)
-            const countDuration = new Date(endDate - startDate).getDate()
+            const countDuration = new Date(endDate - startDate).getDate();
             this.setState({
                 data: {
                     ...this.state.data,
@@ -43,7 +44,7 @@ export default class BookingForm extends Component{
                 }
             })
         }
-        
+        //date
         if (prevState.data.duration !== data.duration) {
             const startDate = new Date(data.date.startDate)
             const endDate = new Date(startDate.setDate(startDate.getDate() + + data.duration - 1))//getdate()memngambil tanggalnya saja
@@ -52,7 +53,7 @@ export default class BookingForm extends Component{
                 data: {
                     ...this.state.data,
                     date: {
-                        ...this.state,
+                        ...this.state.data.date,
                         endDate: endDate
                     }
                 }

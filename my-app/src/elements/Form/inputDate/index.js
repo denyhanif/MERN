@@ -26,7 +26,6 @@ export default function Date(props) {
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -44,7 +43,8 @@ export default function Date(props) {
   };
 
   const displayDate = `${value.startDate ? formatDate(value.startDate) : ''}
-${value.endDate ? ' - ' + formatDate(value.endDate) : ''}`;
+  ${value.endDate ? ' - ' + formatDate(value.endDate) : ''}
+  `;
  
   return (
     <div
