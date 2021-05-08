@@ -7,7 +7,7 @@ import LandingPage from "pages/LandingPage";
 //import ExampleDate from "pages/exsampleDate";
 //import ExampleBreadcrumb from "pages/exampleBreadcrumb";
 import DetailPage from "pages/DetailsPage";
-
+import Checkout from 'pages/Checkout'
 
 
 
@@ -16,6 +16,7 @@ function App() {
     <Router>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/properties/:id" component={DetailPage} />
+      <Route path="/checkout" component={Checkout} />
     </Router>
   
   </div>;
